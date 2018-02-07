@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class SignUp: UIViewController {
-    
+    //測試GitHub
     @IBOutlet weak var remind: UILabel!
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var signPassword: UITextField!
