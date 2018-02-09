@@ -8,7 +8,38 @@
 
 import UIKit
 
-class VC1: UIViewController {
+class TEDCell1:UITableViewCell{
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var txt1: UITextField!
+    
+}
+
+class TEDCell2:UITableViewCell{
+    @IBOutlet var label1: UILabel!
+    
+}
+
+class TEDCell3:UITableViewCell{
+    
+}
+
+class VC1: UIViewController,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        var cell:UITableViewCell!
+        if indexPath.row == 1{
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell1")
+        }else if indexPath.row == 2{
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell2")
+        }
+        return cell
+    }
+    
     
     
     override func viewDidLoad() {
