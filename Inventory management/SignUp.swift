@@ -9,9 +9,10 @@
 import UIKit
 import Firebase
 
+var refUers: DatabaseReference!
+
 class SignUp: UIViewController {
-    //測試GitHub
-    @IBOutlet weak var remind: UILabel!
+    
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var signPassword: UITextField!
     @IBOutlet weak var surePassword: UITextField!
@@ -23,7 +24,8 @@ class SignUp: UIViewController {
     
     //建立(按鈕)
     @IBAction func signUp(_ sender: UIButton) {
-
+        
+        
         let signEmail = self.signEmail.text
         let signPassword = self.signPassword.text
         let surePassword = self.surePassword.text
@@ -31,52 +33,98 @@ class SignUp: UIViewController {
         //.contains確認裡面有沒有()裡的值，有的話會回傳true，沒有就回傳false
         //if !()! 是反向的動作
         if (signEmail?.isEmpty)! || !(signEmail?.contains("@"))! || !(signEmail?.contains("."))!{
-            remind.text = "請確認輸入電子郵件！"
+            
+            let alertController = UIAlertController(title: "錯誤", message: "請確認輸入電子郵件！", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        if (signPassword?.count)! < 5 {
+            
+            let alertController = UIAlertController(title: "錯誤", message: "密碼不得小於六位英數字", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
         if (signPassword?.isEmpty)! || signPassword != surePassword{
-            remind.text = "密碼不相同！請重新輸入！"
-            if (signPassword?.count)! < 5 {
-                remind.text = "密碼不得小於6的字數！"
-                return
-            }
+            //
+            let alertController = UIAlertController(title: "錯誤", message: "密碼不相同！請重新輸入！", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
         }else{
-            remind.text = ""
             //建立使用者（https://firebase.google.com/docs/auth/ios/start?authuser=0）
-            Auth.auth().createUser(withEmail: signEmail!, password: signPassword!) { (user, error) in
-                print("帳號建立成功")
-                if let error = error{
-                    print(error.localizedDescription)
+            if let email = signEmail, let password = signPassword{
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    
+                    if let error = error{
+                        print(error.localizedDescription)
+                        
+                        let alertController = UIAlertController(title: "錯誤", message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                        
+                    }else{
+                        print("帳戶建立成功")
+                        
+                        let alertController = UIAlertController(title: "帳戶建立成功", message: "", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                        
+                        self.signEmail.text = ""
+                        self.signPassword.text = ""
+                        self.surePassword.text = ""
+                        
+                        
+                        
+                        //寫入的Data
+                        refUers = Database.database().reference()
+                        
+                        let key = refUers.child("UrersId").childByAutoId().key
+                        let UrersId = ["Email": signEmail!] as [String : Any]
+                        let childUpdates = ["/UrersId/\(key)": UrersId]
+                        refUers.updateChildValues(childUpdates)
+                        
+                    }
+                    
                 }
             }
-            //跳到登入帳號頁面
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "VC")
-            self.navigationController?.pushViewController(VC!, animated: true)
         }
     }
-
+    
+    //按背景收起鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+

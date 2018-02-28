@@ -9,23 +9,29 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+//var refLogin: DatabaseReference!
+
+class ViewController: UIViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var login: UITextField!
+    
+    @IBOutlet var login: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var remind: UILabel!
     @IBAction func signIn(_ sender: UIButton) {
         
         let login = self.login.text
         let password = self.password.text
         
         if (login?.isEmpty)! || !(login?.contains("@"))! || !(login?.contains("."))!{
-            remind.text = "請確認帳號後再重新輸入！"
+            let alertController = UIAlertController(title: "登入失敗", message: "請確認帳號後再重新輸入！", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
             return
         }
         
         if (password?.isEmpty)! || (password?.count)! <= 5{
-            remind.text = "請確認密碼後再重新輸入！"
+            let alertController = UIAlertController(title: "登入失敗", message: "請確認密碼後再重新輸入！", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
             return
         }
         
@@ -36,20 +42,24 @@ class ViewController: UIViewController {
                 // The user's ID, unique to the Firebase project.
                 // Do NOT use this value to authenticate with your backend server,
                 // if you have one. Use getTokenWithCompletion:completion: instead.
-                _ = user.uid
-                _ = user.email
-                self.remind.text = ""
+                let uid = user.uid
+                let email = user.email!
+                
+                
+                print("使用者的uid：\(uid)")
+                print("使用者的email：\(email)")
                 print("登入成功")
                 
-                let TabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar")
-                self.navigationController?.pushViewController(TabBar!, animated: true)
+                
             }else{
-                self.remind.text = "登入失敗！請確認後再輸入一次！"
+                let alertController = UIAlertController(title: "登入失敗", message: "請確認後再次登入！", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
                 print("登入失敗")
             }
         }
+        
     }
-    
     var handle: AuthStateDidChangeListenerHandle?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,18 +72,23 @@ class ViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
-    
+    //按背景收起鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
+
 
