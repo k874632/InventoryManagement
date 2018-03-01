@@ -75,11 +75,23 @@ class NewProduct: UITableViewController {
         }
         
     }
-    
-    
+        
+    //將不同頁面連結好傳輸信息到NewProduct.swift
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="gotoClassificaiton"{
             let nextVC = segue.destination as! Classification
+            nextVC.proVC = self
+        }else if segue.identifier=="gotoPlace"{
+            let nextVC = segue.destination as! Place
+            nextVC.proVC = self
+        }else if segue.identifier=="gotoQuantity"{
+            let nextVC = segue.destination as! Quantity
+            nextVC.proVC = self
+        }else if segue.identifier=="gotoPrincipal"{
+            let nextVC = segue.destination as! Principal
+            nextVC.proVC = self
+        }else if segue.identifier=="gotoTime"{
+            let nextVC = segue.destination as! Time
             nextVC.proVC = self
         }//storyboard拉下一條segue時，在這加上else if segue.identifier=="segue的名稱"{...
         

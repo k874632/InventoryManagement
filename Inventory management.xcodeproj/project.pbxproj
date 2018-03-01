@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0160BF41204702FA00149722 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF40204702FA00149722 /* Quantity.swift */; };
+		0160BF4320471C7400149722 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF4220471C7400149722 /* Principal.swift */; };
+		0160BF45204720BF00149722 /* PrincipalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF44204720BF00149722 /* PrincipalName.swift */; };
+		0160BF472048283600149722 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF462048283600149722 /* Time.swift */; };
 		017529B52025A912001DAA4F /* NewProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529B42025A912001DAA4F /* NewProduct.swift */; };
-		017529B92025B247001DAA4F /* VC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529B82025B247001DAA4F /* VC3.swift */; };
-		017529BB2025B253001DAA4F /* VC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BA2025B253001DAA4F /* VC4.swift */; };
+		017529B92025B247001DAA4F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529B82025B247001DAA4F /* Place.swift */; };
+		017529BB2025B253001DAA4F /* Placename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BA2025B253001DAA4F /* Placename.swift */; };
 		017529BD2025B459001DAA4F /* VC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BC2025B459001DAA4F /* VC5.swift */; };
 		017529C62026FADC001DAA4F /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 017529C22026FADB001DAA4F /* 12.png */; };
 		017529C72026FADC001DAA4F /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 017529C32026FADB001DAA4F /* 13.png */; };
@@ -34,9 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0160BF40204702FA00149722 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		0160BF4220471C7400149722 /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
+		0160BF44204720BF00149722 /* PrincipalName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalName.swift; sourceTree = "<group>"; };
+		0160BF462048283600149722 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		017529B42025A912001DAA4F /* NewProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProduct.swift; sourceTree = "<group>"; };
-		017529B82025B247001DAA4F /* VC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC3.swift; sourceTree = "<group>"; };
-		017529BA2025B253001DAA4F /* VC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC4.swift; sourceTree = "<group>"; };
+		017529B82025B247001DAA4F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		017529BA2025B253001DAA4F /* Placename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placename.swift; sourceTree = "<group>"; };
 		017529BC2025B459001DAA4F /* VC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC5.swift; sourceTree = "<group>"; };
 		017529C22026FADB001DAA4F /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
 		017529C32026FADB001DAA4F /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
@@ -133,9 +141,13 @@
 				017529B42025A912001DAA4F /* NewProduct.swift */,
 				017529CE202F296A001DAA4F /* Classification.swift */,
 				017529D22036DC5B001DAA4F /* Classname.swift */,
+				017529B82025B247001DAA4F /* Place.swift */,
+				017529BA2025B253001DAA4F /* Placename.swift */,
+				0160BF40204702FA00149722 /* Quantity.swift */,
+				0160BF4220471C7400149722 /* Principal.swift */,
+				0160BF44204720BF00149722 /* PrincipalName.swift */,
+				0160BF462048283600149722 /* Time.swift */,
 				017529BC2025B459001DAA4F /* VC5.swift */,
-				017529B82025B247001DAA4F /* VC3.swift */,
-				017529BA2025B253001DAA4F /* VC4.swift */,
 				81CBF3742021D5C800D7F192 /* Info.plist */,
 			);
 			path = "Inventory management";
@@ -252,7 +264,7 @@
 		};
 		CCCED30F7B98E41049F8E61C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -297,13 +309,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				814D6F8F203DA1880001D944 /* ViewController.swift in Sources */,
-				017529B92025B247001DAA4F /* VC3.swift in Sources */,
+				0160BF45204720BF00149722 /* PrincipalName.swift in Sources */,
+				017529B92025B247001DAA4F /* Place.swift in Sources */,
+				0160BF472048283600149722 /* Time.swift in Sources */,
 				018E0DD52023392E0000D332 /* SignUp.swift in Sources */,
 				017529CF202F296A001DAA4F /* Classification.swift in Sources */,
+				0160BF4320471C7400149722 /* Principal.swift in Sources */,
 				017529BD2025B459001DAA4F /* VC5.swift in Sources */,
-				017529BB2025B253001DAA4F /* VC4.swift in Sources */,
+				017529BB2025B253001DAA4F /* Placename.swift in Sources */,
 				017529D32036DC5C001DAA4F /* Classname.swift in Sources */,
 				017529B52025A912001DAA4F /* NewProduct.swift in Sources */,
+				0160BF41204702FA00149722 /* Quantity.swift in Sources */,
 				81CBF3692021D5C800D7F192 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L4DPHQAB;
 				INFOPLIST_FILE = "Inventory management/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = idv.nick1992.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L4DPHQAB;
 				INFOPLIST_FILE = "Inventory management/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = idv.nick1992.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
