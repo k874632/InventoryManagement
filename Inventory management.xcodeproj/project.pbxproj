@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011F63A82049917B00C29A29 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F63A72049917B00C29A29 /* Inventory.swift */; };
+		013D133D204C15D800BB9D33 /* Inventory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D133C204C15D800BB9D33 /* Inventory2.swift */; };
 		0160BF41204702FA00149722 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF40204702FA00149722 /* Quantity.swift */; };
 		0160BF4320471C7400149722 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF4220471C7400149722 /* Principal.swift */; };
 		0160BF45204720BF00149722 /* PrincipalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF44204720BF00149722 /* PrincipalName.swift */; };
@@ -14,7 +16,7 @@
 		017529B52025A912001DAA4F /* NewProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529B42025A912001DAA4F /* NewProduct.swift */; };
 		017529B92025B247001DAA4F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529B82025B247001DAA4F /* Place.swift */; };
 		017529BB2025B253001DAA4F /* Placename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BA2025B253001DAA4F /* Placename.swift */; };
-		017529BD2025B459001DAA4F /* VC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BC2025B459001DAA4F /* VC5.swift */; };
+		017529BD2025B459001DAA4F /* SignOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529BC2025B459001DAA4F /* SignOut.swift */; };
 		017529C62026FADC001DAA4F /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 017529C22026FADB001DAA4F /* 12.png */; };
 		017529C72026FADC001DAA4F /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 017529C32026FADB001DAA4F /* 13.png */; };
 		017529C82026FADC001DAA4F /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 017529C42026FADC001DAA4F /* 14.png */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011F63A72049917B00C29A29 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		013D133C204C15D800BB9D33 /* Inventory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory2.swift; sourceTree = "<group>"; };
 		0160BF40204702FA00149722 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		0160BF4220471C7400149722 /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
 		0160BF44204720BF00149722 /* PrincipalName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalName.swift; sourceTree = "<group>"; };
@@ -45,7 +49,7 @@
 		017529B42025A912001DAA4F /* NewProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProduct.swift; sourceTree = "<group>"; };
 		017529B82025B247001DAA4F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		017529BA2025B253001DAA4F /* Placename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placename.swift; sourceTree = "<group>"; };
-		017529BC2025B459001DAA4F /* VC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC5.swift; sourceTree = "<group>"; };
+		017529BC2025B459001DAA4F /* SignOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOut.swift; sourceTree = "<group>"; };
 		017529C22026FADB001DAA4F /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
 		017529C32026FADB001DAA4F /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
 		017529C42026FADC001DAA4F /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			children = (
 				8196FE84202485B600CD99A4 /* images */,
 				81CBF37A2021DDC100D7F192 /* GoogleService-Info.plist */,
+				81CBF3742021D5C800D7F192 /* Info.plist */,
 				81CBF3682021D5C800D7F192 /* AppDelegate.swift */,
 				81CBF36C2021D5C800D7F192 /* Main.storyboard */,
 				81CBF36F2021D5C800D7F192 /* Assets.xcassets */,
@@ -147,8 +152,9 @@
 				0160BF4220471C7400149722 /* Principal.swift */,
 				0160BF44204720BF00149722 /* PrincipalName.swift */,
 				0160BF462048283600149722 /* Time.swift */,
-				017529BC2025B459001DAA4F /* VC5.swift */,
-				81CBF3742021D5C800D7F192 /* Info.plist */,
+				011F63A72049917B00C29A29 /* Inventory.swift */,
+				013D133C204C15D800BB9D33 /* Inventory2.swift */,
+				017529BC2025B459001DAA4F /* SignOut.swift */,
 			);
 			path = "Inventory management";
 			sourceTree = "<group>";
@@ -309,13 +315,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				814D6F8F203DA1880001D944 /* ViewController.swift in Sources */,
+				013D133D204C15D800BB9D33 /* Inventory2.swift in Sources */,
 				0160BF45204720BF00149722 /* PrincipalName.swift in Sources */,
+				011F63A82049917B00C29A29 /* Inventory.swift in Sources */,
 				017529B92025B247001DAA4F /* Place.swift in Sources */,
 				0160BF472048283600149722 /* Time.swift in Sources */,
 				018E0DD52023392E0000D332 /* SignUp.swift in Sources */,
 				017529CF202F296A001DAA4F /* Classification.swift in Sources */,
 				0160BF4320471C7400149722 /* Principal.swift in Sources */,
-				017529BD2025B459001DAA4F /* VC5.swift in Sources */,
+				017529BD2025B459001DAA4F /* SignOut.swift in Sources */,
 				017529BB2025B253001DAA4F /* Placename.swift in Sources */,
 				017529D32036DC5C001DAA4F /* Classname.swift in Sources */,
 				017529B52025A912001DAA4F /* NewProduct.swift in Sources */,

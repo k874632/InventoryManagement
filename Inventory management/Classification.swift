@@ -21,7 +21,6 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     //分類名稱
     var classNames = ["＋新增分類"]
-    var cellText:String = ""
     
     //cell數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

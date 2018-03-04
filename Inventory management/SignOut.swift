@@ -8,10 +8,11 @@
 
 import UIKit
 
-class VC5: UIViewController {
+class SignOut: UIViewController {
     
     @IBAction func signOut(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+//        let vcLogin = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")as! ViewController
+        self.navigationController?.popToRootViewController(animated: true)
         print("返回登入畫面")
     }
 

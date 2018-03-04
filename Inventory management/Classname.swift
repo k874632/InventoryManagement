@@ -25,7 +25,7 @@ class Classname: UIViewController {
     @IBOutlet var newClassName: UITextField!
     @IBAction func determineName(_ sender: UIButton) {
         
-        //寫入的資料
+        //寫入的資料到Firebase
         refClassName = Database.database().reference()
         
         let uid = Auth.auth().currentUser!.uid

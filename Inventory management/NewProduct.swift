@@ -32,7 +32,7 @@ class NewProduct: UITableViewController {
         let email = Auth.auth().currentUser!.email
         
         //寫入的資料
-        let key = refProduct.child("products").childByAutoId().key
+        let key = refProduct.child("Products").childByAutoId().key
         let product = ["product-name": productName.text!,
                        "product-class": className.text!,
                        "product-place": place.text!,
@@ -40,8 +40,13 @@ class NewProduct: UITableViewController {
                        "product-principal": principal.text!,
                        "product-time": time.text!,
                        "product-remarks": remarks.text!] as [String : Any]
-        let childUpdates = ["/UserUid-\(uid)/products/\(key)": product]
+        let childUpdates = ["/UserUid-\(uid)/Products/\(key)": product]
         refProduct.updateChildValues(childUpdates)
+        
+        let key2 = refProduct.child("ProductNames").childByAutoId().key
+        let name = ["product-name": productName.text!] as [String : Any]
+        let childUpdates2 = ["/UserUid-\(uid)/ProductNames/\(key2)": name]
+        refProduct.updateChildValues(childUpdates2)
         
         productName.text = ""
         className.text = ""
