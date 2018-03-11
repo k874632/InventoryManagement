@@ -15,6 +15,7 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
     var proVC:NewProduct!
     
     let uid = Auth.auth().currentUser!.uid
+    var key = [String]()
     
     @IBOutlet weak var classTableView: UITableView!
     
@@ -75,12 +76,12 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
                     //因為Dictionary的是value是AnyObject，所以要強制轉型成String
                     let aStr = value as! String
                     self.classNames.append(aStr)
+                    let keyID = snapshot.key
+                    self.key.append(keyID)
                 }
             
             //tableView重新載入資料
             self.classTableView.reloadData()
-            print("datas=\(datas)")
-            print("snapshot=\(snapshot)")
         })
     }
     
@@ -90,20 +91,20 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        //刪除firebase的資料(cell)
         if editingStyle == .delete{
-            //新增刪除語法！
-//            refClass.database.reference().child("UserUid-\(uid)/Classification").removeValue()
             
-            refClass.database.reference().child("UserUid-\(uid)/Classification").observe(.value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [DataSnapshot] {
-                    for child in result {
-                        let productID = child.key
-                        print("productID=\(productID)")
-                    }
-                }
-            })
-         
+            refClass.database.reference().child("UserUid-\(uid)/Classification/\(key[indexPath.row-1])").removeValue()
+            print("delete _ \(key[indexPath.row-1])")
+            
+            self.key.remove(at: indexPath.row)
+            self.classNames.remove(at: indexPath.row)
+            print(key)
+            print(classNames)
         }
+        
+        self.classTableView.reloadData()
     }
     
     
@@ -125,9 +126,6 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
 }
 

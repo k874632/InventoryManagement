@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		011F63A82049917B00C29A29 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F63A72049917B00C29A29 /* Inventory.swift */; };
-		013D133D204C15D800BB9D33 /* Inventory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D133C204C15D800BB9D33 /* Inventory2.swift */; };
 		0160BF41204702FA00149722 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF40204702FA00149722 /* Quantity.swift */; };
 		0160BF4320471C7400149722 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF4220471C7400149722 /* Principal.swift */; };
 		0160BF45204720BF00149722 /* PrincipalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF44204720BF00149722 /* PrincipalName.swift */; };
@@ -26,6 +25,7 @@
 		017529CF202F296A001DAA4F /* Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529CE202F296A001DAA4F /* Classification.swift */; };
 		017529D32036DC5C001DAA4F /* Classname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529D22036DC5B001DAA4F /* Classname.swift */; };
 		018E0DD52023392E0000D332 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E0DD42023392E0000D332 /* SignUp.swift */; };
+		01D31984204C56EB009FD912 /* ProductName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D31983204C56EB009FD912 /* ProductName.swift */; };
 		21247A5723EF00EACDF33C01 /* Pods_Inventory_management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833615333BA6C0445C806E07 /* Pods_Inventory_management.framework */; };
 		814D6F8F203DA1880001D944 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D6F8E203DA1880001D944 /* ViewController.swift */; };
 		8196FE8B202485B700CD99A4 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 8196FE85202485B600CD99A4 /* 01.png */; };
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		011F63A72049917B00C29A29 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		013D133C204C15D800BB9D33 /* Inventory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory2.swift; sourceTree = "<group>"; };
 		0160BF40204702FA00149722 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		0160BF4220471C7400149722 /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
 		0160BF44204720BF00149722 /* PrincipalName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalName.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		017529CE202F296A001DAA4F /* Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classification.swift; sourceTree = "<group>"; };
 		017529D22036DC5B001DAA4F /* Classname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classname.swift; sourceTree = "<group>"; };
 		018E0DD42023392E0000D332 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		01D31983204C56EB009FD912 /* ProductName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductName.swift; sourceTree = "<group>"; };
 		814D6F8E203DA1880001D944 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8196FE85202485B600CD99A4 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
 		8196FE86202485B600CD99A4 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
@@ -143,6 +143,7 @@
 				81CBF3712021D5C800D7F192 /* LaunchScreen.storyboard */,
 				814D6F8E203DA1880001D944 /* ViewController.swift */,
 				018E0DD42023392E0000D332 /* SignUp.swift */,
+				017529BC2025B459001DAA4F /* SignOut.swift */,
 				017529B42025A912001DAA4F /* NewProduct.swift */,
 				017529CE202F296A001DAA4F /* Classification.swift */,
 				017529D22036DC5B001DAA4F /* Classname.swift */,
@@ -153,8 +154,7 @@
 				0160BF44204720BF00149722 /* PrincipalName.swift */,
 				0160BF462048283600149722 /* Time.swift */,
 				011F63A72049917B00C29A29 /* Inventory.swift */,
-				013D133C204C15D800BB9D33 /* Inventory2.swift */,
-				017529BC2025B459001DAA4F /* SignOut.swift */,
+				01D31983204C56EB009FD912 /* ProductName.swift */,
 			);
 			path = "Inventory management";
 			sourceTree = "<group>";
@@ -315,7 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				814D6F8F203DA1880001D944 /* ViewController.swift in Sources */,
-				013D133D204C15D800BB9D33 /* Inventory2.swift in Sources */,
 				0160BF45204720BF00149722 /* PrincipalName.swift in Sources */,
 				011F63A82049917B00C29A29 /* Inventory.swift in Sources */,
 				017529B92025B247001DAA4F /* Place.swift in Sources */,
@@ -328,6 +327,7 @@
 				017529D32036DC5C001DAA4F /* Classname.swift in Sources */,
 				017529B52025A912001DAA4F /* NewProduct.swift in Sources */,
 				0160BF41204702FA00149722 /* Quantity.swift in Sources */,
+				01D31984204C56EB009FD912 /* ProductName.swift in Sources */,
 				81CBF3692021D5C800D7F192 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

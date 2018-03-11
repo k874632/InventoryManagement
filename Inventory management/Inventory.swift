@@ -17,7 +17,7 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
     
     var inventoryNames = [String]()
     var filteredData = [String]()
-    
+    var key = [String]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -48,8 +48,12 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
         print(indexPath.row)
         print(inventoryNames[row])
         
+        let proName = storyboard?.instantiateViewController(withIdentifier: "ProductName")
+        self.navigationController?.pushViewController(proName!, animated: true)
         
-        
+        if row == indexPath.row {
+            print(key[row])
+        }
 //        proVC.inventoryNames.text = inventoryNames[row]
 //        self.navigationController?.popViewController(animated: true)
         
@@ -66,12 +70,14 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
                 //因為Dictionary的是value是AnyObject，所以要強制轉型成String
                 let aStr = value as! String
                 self.inventoryNames.append(aStr)
+                let keyID = snapshot.key
+                self.key.append(keyID)
             }
 
             //tableView重新載入資料
             self.inventoryTableView.reloadData()
-            print("datas=\(datas)")
-            print("snapshot=\(snapshot)")
+//            print("datas=\(datas)")
+//            print("snapshot=\(snapshot)")
         })
     }
     
