@@ -72,6 +72,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
+    //按確定收起鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     //按背景收起鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -80,12 +85,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        login.delegate = self
+        password.delegate = self
     }
     
     

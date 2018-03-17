@@ -11,7 +11,7 @@ import Firebase
 
 var refUers: DatabaseReference!
 
-class SignUp: UIViewController {
+class SignUp: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var signPassword: UITextField!
@@ -99,6 +99,11 @@ class SignUp: UIViewController {
         }
     }
     
+    //按確定收起鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     //按背景收起鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -107,24 +112,10 @@ class SignUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        signEmail.delegate = self
+        signPassword.delegate = self
+        surePassword.delegate = self
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 

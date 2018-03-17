@@ -11,7 +11,7 @@ import Firebase
 
 var refProName: DatabaseReference!
 
-class ProductName: UITableViewController {
+class ProductName: UITableViewController,UITextFieldDelegate,UITextViewDelegate {
     var userUid:String = ""
     
     @IBOutlet var productName: UITextField!
@@ -58,6 +58,11 @@ class ProductName: UITableViewController {
 //        })
 //    }
     
+    //按確定收起鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     //按背景收起鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -66,6 +71,8 @@ class ProductName: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        productName.delegate = self
+        remarks.delegate = self
     }
 
 }

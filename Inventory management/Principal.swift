@@ -14,11 +14,16 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var proVC:NewProduct!
     
     let uid = Auth.auth().currentUser!.uid
+    var key = [String]()
     
     @IBOutlet var principalTableView: UITableView!
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        let vcPL = self.storyboard?.instantiateViewController(withIdentifier: "PrincipalName")as! PrincipalName
+        self.navigationController?.present(vcPL, animated: true, completion: nil)
+    }
     
     //分類名稱
-    var principalNames = ["＋新增負責人"]
+    var principalNames = [String]()
     
     //cell數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,16 +33,10 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "PrincipalCell")
+        cell1?.textLabel?.text = principalNames[indexPath.row]
+        return cell1!
         
-        if indexPath.row == 0{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "PrincipalCell")
-            cell1?.textLabel?.text = "＋新增負責人"
-            return cell1!
-        }else{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "PrincipalCell")
-            cell1?.textLabel?.text = principalNames[indexPath.row]
-            return cell1!
-        }
     }
     
     //點選cell時執行動作
@@ -45,20 +44,12 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
         print(indexPath.row)
         
+        let row = indexPath.row
+        print(principalNames[row])
         
-        if indexPath.row == 0{
-            let vcPL = self.storyboard?.instantiateViewController(withIdentifier: "PrincipalName")as! PrincipalName
-            
-            self.navigationController?.present(vcPL, animated: true, completion: nil)
-            
-        }else{
-            
-            let row = indexPath.row
-            print(principalNames[row])
-            
-            proVC.principal.text = principalNames[row]
-            self.navigationController?.popViewController(animated: true)
-        }
+        proVC.principal.text = principalNames[row]
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     
@@ -73,6 +64,8 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 //因為Dictionary的是value是AnyObject，所以要強制轉型成String
                 let aStr = value as! String
                 self.principalNames.append(aStr)
+                let keyID = snapshot.key
+                self.key.append(keyID)
             }
             
             //tableView重新載入資料
@@ -88,20 +81,18 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete{
             //新增刪除語法！
-            //            refClass.database.reference().child("UserUid-\(uid)/Classification").removeValue()
+            refPrincipal.database.reference().child("UserUid-\(uid)/Principal/\(key[indexPath.row])").removeValue()
             
-            refPrincipal.database.reference().child("UserUid-\(uid)/Place").observe(.value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [DataSnapshot] {
-                    for child in result {
-                        let productID = child.key
-                        print("productID=\(productID)")
-                    }
-                }
-            })
+            print("delete _ \(key[indexPath.row])")
             
+            self.key.remove(at: indexPath.row)
+            self.principalNames.remove(at: indexPath.row)
         }
+        
+        self.principalTableView.reloadData()
     }
     
     
@@ -120,11 +111,6 @@ class Principal: UIViewController,UITableViewDataSource,UITableViewDelegate {
         print("refprincipal=\(refPrincipal)")
         
         observe()
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         
     }
     

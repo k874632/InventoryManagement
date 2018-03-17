@@ -14,11 +14,16 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var proVC:NewProduct!
     
     let uid = Auth.auth().currentUser!.uid
+    var key = [String]()
     
     @IBOutlet var placeTableView: UITableView!
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        let vcPN = self.storyboard?.instantiateViewController(withIdentifier: "PlaceName")as! Placename
+        self.navigationController?.present(vcPN, animated: true, completion: nil)
+    }
     
     //分類名稱
-    var placeNames = ["＋新增位置"]
+    var placeNames = [String]()
     
     //cell數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,16 +33,10 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "PlaceCell")
+        cell1?.textLabel?.text = placeNames[indexPath.row]
+        return cell1!
         
-        if indexPath.row == 0{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "PlaceCell")
-            cell1?.textLabel?.text = "＋新增位置"
-            return cell1!
-        }else{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "PlaceCell")
-            cell1?.textLabel?.text = placeNames[indexPath.row]
-            return cell1!
-        }
     }
     
     //點選cell時執行動作
@@ -45,20 +44,12 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
         print(indexPath.row)
         
+        let row = indexPath.row
+        print(placeNames[row])
         
-        if indexPath.row == 0{
-            let vcPN = self.storyboard?.instantiateViewController(withIdentifier: "PlaceName")as! Placename
-            
-            self.navigationController?.present(vcPN, animated: true, completion: nil)
-            
-        }else{
-            
-            let row = indexPath.row
-            print(placeNames[row])
-            
-            proVC.place.text = placeNames[row]
-            self.navigationController?.popViewController(animated: true)
-        }
+        proVC.place.text = placeNames[row]
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     
@@ -73,6 +64,8 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 //因為Dictionary的是value是AnyObject，所以要強制轉型成String
                 let aStr = value as! String
                 self.placeNames.append(aStr)
+                let keyID = snapshot.key
+                self.key.append(keyID)
             }
             
             //tableView重新載入資料
@@ -88,20 +81,20 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete{
             //新增刪除語法！
-            //            refClass.database.reference().child("UserUid-\(uid)/Classification").removeValue()
+            refPlace.database.reference().child("UserUid-\(uid)/Place/\(key[indexPath.row])").removeValue()
+            print("delete _ \(key[indexPath.row])")
             
-            refPlace.database.reference().child("UserUid-\(uid)/Place").observe(.value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [DataSnapshot] {
-                    for child in result {
-                        let productID = child.key
-                        print("productID=\(productID)")
-                    }
-                }
-            })
+            self.key.remove(at: indexPath.row)
+            self.placeNames.remove(at: indexPath.row)
+            
+            print(key)
+            print(placeNames)
             
         }
+        self.placeTableView.reloadData()
     }
     
     
@@ -120,11 +113,6 @@ class Place: UIViewController,UITableViewDataSource,UITableViewDelegate {
         print("refplace=\(refPlace)")
         
         observe()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         
     }
     

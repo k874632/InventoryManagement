@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Quantity: UIViewController {
+class Quantity: UIViewController,UITextFieldDelegate {
     
     
     var proVC:NewProduct!
@@ -26,7 +26,11 @@ class Quantity: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    //按確定收起鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     //按背景收起鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -34,6 +38,8 @@ class Quantity: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        quantityTFD.delegate = self
     }
 
 }

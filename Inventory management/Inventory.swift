@@ -88,7 +88,7 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
         filteredData = inventoryNames.filter{ (inventoryNames: String) -> Bool in
                 return inventoryNames.contains(searchString)
         }
-        inventoryTableView.reloadData()
+        self.inventoryTableView.reloadData()
         
         }
     
@@ -98,7 +98,7 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
         super.viewDidLoad()
         
         //到firebase取Classification的路徑
-        refData = Database.database().reference().child("UserUid-\(uid)/ProductNames")
+        refData = Database.database().reference().child("UserUid-\(uid)/Products")
         print("refData=\(refData)")
 
         observe()

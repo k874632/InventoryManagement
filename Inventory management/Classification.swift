@@ -17,11 +17,17 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
     let uid = Auth.auth().currentUser!.uid
     var key = [String]()
     
-    @IBOutlet weak var classTableView: UITableView!
-    
+    @IBOutlet var classTableView: UITableView!
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        
+        let vcCN = self.storyboard?.instantiateViewController(withIdentifier: "ClassName")as! Classname
+        
+        self.navigationController?.present(vcCN, animated: true, completion: nil)
+        
+    }
     
     //分類名稱
-    var classNames = ["＋新增分類"]
+    var classNames = [String]()
     
     //cell數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,16 +37,10 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "ClassCell")
+        cell1?.textLabel?.text = classNames[indexPath.row]
+        return cell1!
         
-        if indexPath.row == 0{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "ClassCell")
-            cell1?.textLabel?.text = "＋新增分類"
-            return cell1!
-        }else{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "ClassCell")
-            cell1?.textLabel?.text = classNames[indexPath.row]
-            return cell1!
-        }
     }
     
     
@@ -49,20 +49,12 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         print(indexPath.row)
         
+        let row = indexPath.row
+        print(classNames[row])
         
-        if indexPath.row == 0{
-            let vcCN = self.storyboard?.instantiateViewController(withIdentifier: "ClassName")as! Classname
-            
-            self.navigationController?.present(vcCN, animated: true, completion: nil)
-            
-        }else{
-            
-            let row = indexPath.row
-            print(classNames[row])
-            
-            proVC.className.text=classNames[row]
-            self.navigationController?.popViewController(animated: true)
-        }
+        proVC.className.text=classNames[row]
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     var refClass: DatabaseReference! //這是google定義的類別
@@ -95,21 +87,15 @@ class Classification: UIViewController,UITableViewDataSource,UITableViewDelegate
         //刪除firebase的資料(cell)
         if editingStyle == .delete{
             
-            refClass.database.reference().child("UserUid-\(uid)/Classification/\(key[indexPath.row-1])").removeValue()
-            print("delete _ \(key[indexPath.row-1])")
+            refClass.database.reference().child("UserUid-\(uid)/Classification/\(key[indexPath.row])").removeValue()
+            print("delete _ \(key[indexPath.row])")
             
             self.key.remove(at: indexPath.row)
             self.classNames.remove(at: indexPath.row)
-            print(key)
-            print(classNames)
         }
         
         self.classTableView.reloadData()
     }
-    
-    
-    
-    
     
     
     

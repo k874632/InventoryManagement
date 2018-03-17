@@ -11,12 +11,7 @@ import Firebase
 
 var refClassName: DatabaseReference!
 
-class Classname: UIViewController {
-    
-    //按背景收起鍵盤
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+class Classname: UIViewController,UITextFieldDelegate {
     
     @IBAction func closePopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -43,19 +38,22 @@ class Classname: UIViewController {
         print("determineName")
     }
     
+    //按確定收起鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    //點背景收起鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        newClassName.delegate = self
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }
 
