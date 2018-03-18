@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		011F63A82049917B00C29A29 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F63A72049917B00C29A29 /* Inventory.swift */; };
+		01364D3C205D873C0053F36E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01364D3B205D873C0053F36E /* Home.swift */; };
 		0160BF41204702FA00149722 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF40204702FA00149722 /* Quantity.swift */; };
 		0160BF4320471C7400149722 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF4220471C7400149722 /* Principal.swift */; };
 		0160BF45204720BF00149722 /* PrincipalName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160BF44204720BF00149722 /* PrincipalName.swift */; };
@@ -20,7 +21,6 @@
 		017529D32036DC5C001DAA4F /* Classname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017529D22036DC5B001DAA4F /* Classname.swift */; };
 		018E0DD52023392E0000D332 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E0DD42023392E0000D332 /* SignUp.swift */; };
 		01D31984204C56EB009FD912 /* ProductName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D31983204C56EB009FD912 /* ProductName.swift */; };
-		21247A5723EF00EACDF33C01 /* Pods_Inventory_management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833615333BA6C0445C806E07 /* Pods_Inventory_management.framework */; };
 		814D6F8F203DA1880001D944 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D6F8E203DA1880001D944 /* ViewController.swift */; };
 		81CBF3692021D5C800D7F192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CBF3682021D5C800D7F192 /* AppDelegate.swift */; };
 		81CBF36E2021D5C800D7F192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81CBF36C2021D5C800D7F192 /* Main.storyboard */; };
@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		011F63A72049917B00C29A29 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		01364D3B205D873C0053F36E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0160BF40204702FA00149722 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		0160BF4220471C7400149722 /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
 		0160BF44204720BF00149722 /* PrincipalName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalName.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		81CBF3722021D5C800D7F192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81CBF3742021D5C800D7F192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81CBF37A2021DDC100D7F192 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		833615333BA6C0445C806E07 /* Pods_Inventory_management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7CD7A46950720D8686EDD2 /* Pods-Inventory management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory management.release.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory management/Pods-Inventory management.release.xcconfig"; sourceTree = "<group>"; };
 		FF6D26EEF5735780B61568C3 /* Pods-Inventory management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory management.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory management/Pods-Inventory management.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,28 +61,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21247A5723EF00EACDF33C01 /* Pods_Inventory_management.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63EFAC0A3F528852745CDA59 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				833615333BA6C0445C806E07 /* Pods_Inventory_management.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		81CBF35C2021D5C800D7F192 = {
 			isa = PBXGroup;
 			children = (
 				81CBF3672021D5C800D7F192 /* Inventory management */,
 				81CBF3662021D5C800D7F192 /* Products */,
 				BC92D86FD8AE1E72F0953D34 /* Pods */,
-				63EFAC0A3F528852745CDA59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +93,7 @@
 				81CBF36C2021D5C800D7F192 /* Main.storyboard */,
 				81CBF36F2021D5C800D7F192 /* Assets.xcassets */,
 				81CBF3712021D5C800D7F192 /* LaunchScreen.storyboard */,
+				01364D3B205D873C0053F36E /* Home.swift */,
 				814D6F8E203DA1880001D944 /* ViewController.swift */,
 				018E0DD42023392E0000D332 /* SignUp.swift */,
 				017529BC2025B459001DAA4F /* SignOut.swift */,
@@ -222,7 +213,7 @@
 		};
 		CCCED30F7B98E41049F8E61C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -230,14 +221,13 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Inventory management/Pods-Inventory management-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		D2FD30D959DAA559F3134CAA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -280,6 +270,7 @@
 				017529B52025A912001DAA4F /* NewProduct.swift in Sources */,
 				0160BF41204702FA00149722 /* Quantity.swift in Sources */,
 				01D31984204C56EB009FD912 /* ProductName.swift in Sources */,
+				01364D3C205D873C0053F36E /* Home.swift in Sources */,
 				81CBF3692021D5C800D7F192 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +412,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L4DPHQAB;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "Inventory management/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +432,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L4DPHQAB;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "Inventory management/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

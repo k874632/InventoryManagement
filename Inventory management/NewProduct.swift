@@ -112,6 +112,7 @@ class NewProduct: UITableViewController,UITextFieldDelegate,UITextViewDelegate {
         self.view.endEditing(true)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

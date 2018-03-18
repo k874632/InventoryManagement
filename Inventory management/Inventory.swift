@@ -98,7 +98,9 @@ class Inventory: UIViewController,UITableViewDataSource,UITableViewDelegate,UISe
         super.viewDidLoad()
         
         //到firebase取Classification的路徑
-        refData = Database.database().reference().child("UserUid-\(uid)/Products")
+        //--------------------------------------------------------------------------------
+        refData = Database.database().reference().child("UserUid-\(uid)/ProductNames")//此處要改成取值於 firebase 路徑：UserUid-\(uid)/Products 裡的 product-name !!!!!!!!!!!
+        //--------------------------------------------------------------------------------
         print("refData=\(refData)")
 
         observe()

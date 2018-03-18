@@ -111,7 +111,6 @@ class SignUp: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         signEmail.delegate = self
         signPassword.delegate = self
         surePassword.delegate = self
